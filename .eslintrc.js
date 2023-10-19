@@ -11,8 +11,9 @@ module.exports = {
     'import/no-import-module-exports': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
-    'no-unused-vars': 'off',
+    'no-use-before-define': 'off';
     '@typescript-eslint/no-unused-vars': 'error',
+    'import/prefer-default-export': 'off',
   },
   parserOptions: {
     ecmaVersion: 2022,

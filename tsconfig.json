@@ -1,18 +1,81 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es2022",
+    "target": "es2021",
     "module": "commonjs",
-    "lib": ["dom", "es2022"],
+    "lib": ["dom", "es2021"],
     "jsx": "react-jsx",
     "strict": true,
     "sourceMap": true,
+    "baseUrl": "./",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "outDir": ".erb/dll"
+    "outDir": ".erb/dll",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@@types/*": [
+        "./src/@types/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@env/*": [
+        "./src/env/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@database/*": [
+        "./src/database/*"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@tests/*": [
+        "./src/__tests__/*"
+      ]
+    },
+    "types": [
+      "vitest/globals",
+      "vitest/importMeta"
+    ]
   },
-  "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
+  "exclude": ["__test__", "release/build", "release/app/dist", ".erb/dll"]
 }
