@@ -9,6 +9,6 @@ export class CreateTagGateway {
   name: string;
 
   constructor(data: CreateTagGateway) {
-    this.name = data.name;
+    this.name = data.name.trim();
   }
 }

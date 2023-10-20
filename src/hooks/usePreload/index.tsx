@@ -1,5 +1,6 @@
 import { localStorageKeys } from '@config/localStorage/keys';
 import { useInterface } from '@store/Interface';
+import { useProducts } from '@store/Products';
 import { useRoutes } from '@store/Routes';
 import { useTags } from '@store/Tags';
 import { useEffect } from 'react';
@@ -15,8 +16,12 @@ export function usePreload() {
     loadTags: state.loadTags,
     isLoadingTags: state.isLoading,
   }));
+  const { loadProducts, isLoadingProducts } = useProducts((state) => ({
+    loadProducts: state.loadProducts,
+    isLoadingProducts: state.isLoading,
+  }));
 
-  const isLoading = isLoadingTags;
+  const isLoading = isLoadingTags || isLoadingProducts;
 
   useEffect(() => {
     localStorage.setItem(localStorageKeys.navigationHistory, '[]');
@@ -24,6 +29,7 @@ export function usePreload() {
     loadConfig();
     recoveryHistory();
     loadTags();
+    loadProducts();
   }, [recoveryHistory, loadConfig]);
 
   return {

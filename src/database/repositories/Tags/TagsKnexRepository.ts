@@ -1,6 +1,5 @@
 import { Tag } from '@modules/Tags/entities/Tag';
 import { TagsRepository } from '@modules/Tags/repositories/TagsRepository';
-import { Knex } from 'knex';
 import { TagsKnexMapper } from './TagsKnexMapper';
 import { Database } from '@database/index';
 import { inject, injectable } from 'tsyringe';
@@ -12,6 +11,16 @@ export class TagsKnexRepository implements TagsRepository {
     @inject(InjectableKeys.Database)
     private readonly database: Database,
   ) {}
+
+  async findById(id: string): Promise<Tag | null> {
+    const tag = await this.database.knex('tags').where({ id }).first();
+
+    if (!tag) {
+      return null;
+    }
+
+    return TagsKnexMapper.toEntity(tag);
+  }
 
   async findByName(name: string): Promise<Tag | null> {
     const tag = await this.database

@@ -12,7 +12,6 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     'no-use-before-define': 'off';
-    '@typescript-eslint/no-unused-vars': 'error',
     'import/prefer-default-export': 'off',
   },
   parserOptions: {

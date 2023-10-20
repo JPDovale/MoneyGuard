@@ -8,7 +8,7 @@ export function CreateTagPage() {
   }));
 
   return (
-    <section className="max-w-4xl w-full mx-auto pt-8 flex flex-col gap-4">
+    <section className="max-w-5xl w-full mx-auto pt-8 flex flex-col gap-4">
       <CreateTagForm />
 
       <span className="font-bold pt-6 opacity-30">

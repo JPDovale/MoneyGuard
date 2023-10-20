@@ -10,6 +10,7 @@ import { resolveHtmlPath } from './util';
 import { container } from 'tsyringe';
 import { InjectableKeys } from '@shared/container/keys';
 import { Database } from '@database/index';
+import { getPrinters } from 'printer';
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -36,11 +37,14 @@ const createWindow = async () => {
   const database: Database = container.resolve(InjectableKeys.Database);
   await database.knex.migrate.latest();
 
+  const printers = getPrinters();
+  console.log(printers);
+
   mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
     height: 728,
-    fullscreen: true,
+    fullscreen: false,
     icon: getAssetPath('icon.png'),
     autoHideMenuBar: !!app.isPackaged,
     webPreferences: {
