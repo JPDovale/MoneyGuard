@@ -8,6 +8,10 @@ export const RoutesAvailable = {
     path: '/products/create',
   },
 
+  createSale: {
+    path: '/sales/create',
+  },
+
   createTag: {
     path: '/tags/create',
   },

@@ -3,7 +3,12 @@ import { Knex } from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('tags', (table) => {
-    table.string('id').unique().notNullable().defaultTo(knex.fn.uuid());
+    table
+      .string('id')
+      .primary()
+      .unique()
+      .notNullable()
+      .defaultTo(knex.fn.uuid());
     table.string('name').unique().notNullable();
 
     table.timestamp('created_at').notNullable().defaultTo(knex.fn.now());

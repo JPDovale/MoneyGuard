@@ -35,6 +35,12 @@ const newProductFormSchema = z.object({
     })
     .min(2, 'O nome precisa de pelo menos 2 caracteres')
     .max(90, 'O nome não pode ter mais de 90 caractere'),
+  description: z
+    .string({
+      invalid_type_error: 'Descrição inválida',
+    })
+    .max(300, 'A descrição não pode ter mais de 300 caractere')
+    .optional(),
   brand: z
     .string({
       invalid_type_error: 'Marca inválida',
@@ -94,6 +100,7 @@ export function CreateProductPage() {
       isHeavy: data.isHeavy,
       name: data.name,
       price: data.price,
+      description: data.description,
       quantityInStock: data.quantityInStock,
       tagId: data.tagId,
       barCode: data.barCode ?? undefined,
@@ -265,10 +272,21 @@ export function CreateProductPage() {
         <Checkbox.Label className="text-sm">Por peso?</Checkbox.Label>
       </Checkbox.Root>
 
+      <Input.Root>
+        <Input.Header>
+          <Input.Label>Descrição do produto</Input.Label>
+          <Input.Error>{errors.description?.message}</Input.Error>
+        </Input.Header>
+
+        <Input.Input size="sm">
+          <Input.Textarea {...register('description')} />
+        </Input.Input>
+      </Input.Root>
+
       <Button.Root
         type="submit"
         size="xs"
-        className="mt-auto"
+        className="mt-auto mb-40"
         disabled={!isDirty || isSubmitting}
       >
         <Button.Icon>

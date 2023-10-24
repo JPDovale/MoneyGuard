@@ -4,6 +4,7 @@ import { useNav } from '@hooks/useNav';
 import { usePreload } from '@hooks/usePreload';
 import { DashboardLayout } from '@layouts/DashboardLayout';
 import { CreateProductPage } from '@pages/createProduct';
+import { CreateSalePage } from '@pages/createSale';
 import { CreateTagPage } from '@pages/createTag';
 import { HomePage } from '@pages/home';
 import { useRoutes } from '@store/Routes';
@@ -33,6 +34,10 @@ export function AppRoutes() {
         <Route
           path={RoutesAvailable.createProduct.path}
           element={<CreateProductPage />}
+        />
+        <Route
+          path={RoutesAvailable.createSale.path}
+          element={<CreateSalePage />}
         />
         <Route
           path={RoutesAvailable.createTag.path}

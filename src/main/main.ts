@@ -10,7 +10,6 @@ import { resolveHtmlPath } from './util';
 import { container } from 'tsyringe';
 import { InjectableKeys } from '@shared/container/keys';
 import { Database } from '@database/index';
-import { getPrinters } from 'printer';
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -37,8 +36,17 @@ const createWindow = async () => {
   const database: Database = container.resolve(InjectableKeys.Database);
   await database.knex.migrate.latest();
 
-  const printers = getPrinters();
-  console.log(printers);
+  // printDirect({
+  //   printer: printer.name,
+  //   data: 'Olá',
+  //   type: 'TEXT',
+  //   error: (err) => {
+  //     console.log(err);
+  //   },
+  //   success: (data) => {
+  //     console.log(data);
+  //   },
+  // });
 
   mainWindow = new BrowserWindow({
     show: false,

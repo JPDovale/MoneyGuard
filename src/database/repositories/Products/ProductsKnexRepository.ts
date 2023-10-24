@@ -49,4 +49,14 @@ export class ProductsKnexRepository implements ProductsRepository {
 
     return products.map(ProductsKnexMapper.toEntity);
   }
+
+  async findById(id: string): Promise<Product | null> {
+    const product = await this.database.knex('products').where({ id }).first();
+
+    if (!product) {
+      return null;
+    }
+
+    return ProductsKnexMapper.toEntity(product);
+  }
 }

@@ -7,7 +7,7 @@ interface CheckboxCheckerProps extends PrimitiveCheckbox.CheckboxProps {}
 
 const checkerRootStyles = cva(
   [
-    'flex items-center justify-center leading-[0px] w-6 h-6 cursor-pointer rounded-sm ease-in-out duration-300 overflow-hidden ',
+    'flex items-center justify-center leading-[0px] w-5 h-5 cursor-pointer rounded-sm ease-in-out duration-300 overflow-hidden ',
   ],
   {
     variants: {

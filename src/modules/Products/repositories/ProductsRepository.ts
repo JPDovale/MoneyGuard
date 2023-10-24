@@ -5,4 +5,5 @@ export abstract class ProductsRepository {
   abstract findByName(name: string): Promise<Product | null>;
   abstract findAll(): Promise<Product[]>;
   abstract findByBarCode(barCode: number): Promise<Product | null>;
+  abstract findById(id: string): Promise<Product | null>;
 }

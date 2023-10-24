@@ -21,7 +21,11 @@ export function HomePage() {
       <div>
         <h3 className="font-bold text-xl uppercase text-white/40">Vendas:</h3>
         <div className="grid grid-cols-8 gap-4">
-          <ButtonItem onClick={() => {}} text="Nova venda" Icon={ShoppingBag} />
+          <ButtonItem
+            onClick={() => navigate(RoutesAvailable.createSale.path)}
+            text="Nova venda"
+            Icon={ShoppingBag}
+          />
           <ButtonItem onClick={() => {}} text="Clients" Icon={Users} />
         </div>
       </div>

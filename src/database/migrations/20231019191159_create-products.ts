@@ -3,7 +3,12 @@ import { Knex } from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('products', (table) => {
-    table.string('id').unique().notNullable().defaultTo(knex.fn.uuid());
+    table
+      .string('id')
+      .primary()
+      .unique()
+      .notNullable()
+      .defaultTo(knex.fn.uuid());
     table.string('name').unique().notNullable();
     table.string('brand').notNullable();
     table.string('description').defaultTo(null);
